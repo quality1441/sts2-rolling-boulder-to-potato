@@ -1,6 +1,6 @@
-<img width="1920" height="1080" alt="mod-thumbnail" src="https://github.com/user-attachments/assets/fb64079a-7542-4bd3-9979-ba3fdc29ce14" />
-
 # Rolling Boulder to Potato - A Slay the Spire II mod
+
+[![Video Title](https://img.youtube.com/vi/47essAxLv78/0.jpg)](https://www.youtube.com/watch?v=47essAxLv78)
 
 A cosmetic [Slay the Spire 2](https://store.steampowered.com/app/2868840/Slay_the_Spire_2/) mod that replaces the **Rolling Boulder** card portrait, power icon beneath your character, and the rolling combat VFX with one of three potatoes.
 
