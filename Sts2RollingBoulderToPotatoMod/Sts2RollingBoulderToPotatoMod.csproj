@@ -1,0 +1,36 @@
+<Project Sdk="Godot.NET.Sdk/4.5.1">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <AssemblyName>Sts2RollingBoulderToPotato</AssemblyName>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <RootNamespace>Sts2RollingBoulderToPotatoMod</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NoWarn>$(NoWarn);MSB3270</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Lib.Harmony" Version="2.3.3">
+      <Private>false</Private>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="sts2">
+      <HintPath>$(Sts2DataDir)\sts2.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Sts2RollingBoulderToPotato.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <EmbeddedResource Include="Assets\potato_1.png" />
+    <EmbeddedResource Include="Assets\potato_2.png" />
+    <EmbeddedResource Include="Assets\potato_3.png" />
+  </ItemGroup>
+</Project>

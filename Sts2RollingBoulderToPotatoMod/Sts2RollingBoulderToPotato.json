@@ -1,0 +1,11 @@
+{
+  "id": "Sts2RollingBoulderToPotato",
+  "name": "Rolling Boulder to Potato",
+  "author": "quality1441",
+  "description": "Replaces Rolling Boulder card art, power icon, and combat VFX with potatoes. Set potato to random, 1, 2, or 3 in config.json.",
+  "version": "1.0.0",
+  "has_pck": false,
+  "has_dll": true,
+  "dependencies": [],
+  "affects_gameplay": false
+}

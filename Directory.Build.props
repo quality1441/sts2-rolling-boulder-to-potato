@@ -1,0 +1,4 @@
+<Project>
+  <Import Project="$(MSBuildThisFileDirectory)local.props" Condition="Exists('$(MSBuildThisFileDirectory)local.props')" />
+  <Import Project="$(MSBuildThisFileDirectory)Sts2PathDiscovery.props" Condition="Exists('$(MSBuildThisFileDirectory)Sts2PathDiscovery.props')" />
+</Project>

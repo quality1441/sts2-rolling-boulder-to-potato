@@ -1,0 +1,18 @@
+# Build output (Godot.NET.Sdk uses .godot/ instead of bin/obj)
+**/bin/
+**/obj/
+**/.godot/
+dist/
+
+# Release artifacts
+Sts2RollingBoulderToPotato-*.zip
+# Local machine overrides (copy from local.props.template)
+local.props
+
+# IDE / OS
+.vs/
+.idea/
+*.user
+*.suo
+Thumbs.db
+.DS_Store
