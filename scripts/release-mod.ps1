@@ -7,7 +7,7 @@ param(
 . "$PSScriptRoot\_common.ps1"
 
 $manifestPath = Join-Path $RepoRoot 'Sts2RollingBoulderToPotatoMod\Sts2RollingBoulderToPotato.json'
-$exampleConfig = Join-Path $RepoRoot 'config.example.json'
+$defaultConfig = Join-Path $RepoRoot 'potato.cfg.example'
 $readmeTemplate = Join-Path $PSScriptRoot 'dist-README.md'
 $distRoot = Join-Path $RepoRoot 'dist'
 $releaseDir = Join-Path $distRoot $ModId
@@ -16,8 +16,8 @@ if (-not (Test-Path $manifestPath)) {
     Write-Error "Missing manifest: $manifestPath"
 }
 
-if (-not (Test-Path $exampleConfig)) {
-    Write-Error "Missing config template: $exampleConfig"
+if (-not (Test-Path $defaultConfig)) {
+    Write-Error "Missing config template: $defaultConfig"
 }
 
 if (-not (Test-Path $readmeTemplate)) {
@@ -44,8 +44,7 @@ New-Item -ItemType Directory -Force -Path $releaseDir | Out-Null
 
 Copy-Item -Force $dll (Join-Path $releaseDir 'Sts2RollingBoulderToPotato.dll')
 Copy-Item -Force $manifestPath (Join-Path $releaseDir 'Sts2RollingBoulderToPotato.json')
-Copy-Item -Force $exampleConfig (Join-Path $releaseDir 'config.example.json')
-Copy-Item -Force $exampleConfig (Join-Path $releaseDir 'config.json')
+Copy-Item -Force $defaultConfig (Join-Path $releaseDir 'potato.cfg')
 Copy-Item -Force $readmeTemplate (Join-Path $releaseDir 'README.md')
 
 $thumbnail = Join-Path $RepoRoot 'mod-thumbnail.jpg'

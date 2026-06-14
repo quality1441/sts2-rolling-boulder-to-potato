@@ -4,7 +4,7 @@ A cosmetic [Slay the Spire 2](https://store.steampowered.com/app/2868840/Slay_th
 
 ## Config
 
-Edit `config.json` in the mod folder and restart the game:
+Edit `potato.cfg` in the mod folder and restart the game:
 
 ```json
 {
@@ -62,7 +62,7 @@ Use `-NoZip` if you only want the dist folder. Upload the zip or zip contents to
 ```
 Sts2RollingBoulderToPotatoMod/   # mod source + embedded potato PNGs
 scripts/                           # build/deploy helpers
-config.example.json                # default config shipped with releases
+potato.cfg.example                  # default config template (shipped as potato.cfg)
 mod-thumbnail.jpg                  # optional mod list image
 ```
 

@@ -32,13 +32,13 @@ A cosmetic mod for [Slay the Spire 2](https://store.steampowered.com/app/2868840
 
    - `Sts2RollingBoulderToPotato.dll`
    - `Sts2RollingBoulderToPotato.json`
-   - `config.json` (or copy from `config.example.json`)
+   - `potato.cfg`
 
 3. **Fully quit and restart Slay the Spire 2.**
 
 ## Config
 
-Edit `config.json` in the mod folder and restart the game:
+Edit `potato.cfg` in the mod folder and restart the game:
 
 ```json
 {

@@ -16,3 +16,5 @@ local.props
 *.suo
 Thumbs.db
 .DS_Store
+assets/Preview-Video.gif
+assets/Preview-Video.veg

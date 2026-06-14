@@ -32,7 +32,7 @@ if (-not (Test-Path $dll)) {
 }
 
 $manifest = Join-Path $RepoRoot "Sts2RollingBoulderToPotatoMod\Sts2RollingBoulderToPotato.json"
-$exampleConfig = Join-Path $RepoRoot 'config.example.json'
+$defaultConfig = Join-Path $RepoRoot 'potato.cfg.example'
 if (-not (Test-Path $manifest)) {
     Write-Error "Missing manifest: $manifest"
 }
@@ -41,10 +41,16 @@ New-Item -ItemType Directory -Force -Path $deployDir | Out-Null
 
 Copy-Item -Force $dll (Join-Path $deployDir 'Sts2RollingBoulderToPotato.dll')
 Copy-Item -Force $manifest (Join-Path $deployDir 'Sts2RollingBoulderToPotato.json')
-Copy-Item -Force $exampleConfig (Join-Path $deployDir 'config.example.json')
+if (-not (Test-Path (Join-Path $deployDir 'potato.cfg'))) {
+    Copy-Item -Force $defaultConfig (Join-Path $deployDir 'potato.cfg')
+}
 
-if (-not (Test-Path (Join-Path $deployDir 'config.json'))) {
-    Copy-Item -Force $exampleConfig (Join-Path $deployDir 'config.json')
+foreach ($legacyConfig in @('config.json', 'config.example.json')) {
+    $legacyPath = Join-Path $deployDir $legacyConfig
+    if (Test-Path $legacyPath) {
+        Remove-Item -Force $legacyPath
+        Write-Host "  Removed legacy $legacyConfig (STS2 treats *.json as mod manifests)" -ForegroundColor DarkYellow
+    }
 }
 
 $thumbnail = Join-Path $RepoRoot 'mod-thumbnail.jpg'
@@ -55,6 +61,6 @@ if (Test-Path $thumbnail) {
 Write-Host "Deployed to: $deployDir" -ForegroundColor Green
 Write-Host "  Sts2RollingBoulderToPotato.dll" -ForegroundColor DarkGray
 Write-Host "  Sts2RollingBoulderToPotato.json" -ForegroundColor DarkGray
-Write-Host "  config.json (default: random)" -ForegroundColor DarkGray
+Write-Host "  potato.cfg (default: random)" -ForegroundColor DarkGray
 Write-Host ""
 Write-Host "Restart STS2 with mods enabled to see the potato." -ForegroundColor Yellow

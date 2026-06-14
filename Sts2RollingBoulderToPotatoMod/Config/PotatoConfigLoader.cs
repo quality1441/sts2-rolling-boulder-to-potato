@@ -29,27 +29,18 @@ public sealed class PotatoConfig
 
 public static class PotatoConfigLoader
 {
-    private const string ConfigFileName = "config.json";
-    private const string ExampleFileName = "config.example.json";
+    private const string ConfigFileName = "potato.cfg";
+    private const string LegacyConfigFileName = "config.json";
 
     public static PotatoConfig Load(string modDirectory)
     {
         string configPath = Path.Combine(modDirectory, ConfigFileName);
-        string examplePath = Path.Combine(modDirectory, ExampleFileName);
-
-        if (!File.Exists(configPath) && File.Exists(examplePath))
+        if (!File.Exists(configPath) && File.Exists(Path.Combine(modDirectory, LegacyConfigFileName)))
         {
-            try
-            {
-                File.Copy(examplePath, configPath);
-                RollingBoulderToPotatoMod.Logger.Info(
-                    $"Created {ConfigFileName} from {ExampleFileName}.");
-            }
-            catch (Exception ex)
-            {
-                RollingBoulderToPotatoMod.Logger.Warn(
-                    $"Could not create {ConfigFileName}: {ex.Message}");
-            }
+            configPath = Path.Combine(modDirectory, LegacyConfigFileName);
+            RollingBoulderToPotatoMod.Logger.Warn(
+                $"Using legacy {LegacyConfigFileName}. Rename it to {ConfigFileName} and remove " +
+                $"any *.json config files from the mod folder to avoid STS2 manifest errors.");
         }
 
         if (!File.Exists(configPath))
@@ -65,7 +56,7 @@ public static class PotatoConfigLoader
             if (!document.RootElement.TryGetProperty("potato", out JsonElement potatoElement))
             {
                 RollingBoulderToPotatoMod.Logger.Warn(
-                    $"Missing \"potato\" in {ConfigFileName}. Defaulting to random.");
+                    $"Missing \"potato\" in {Path.GetFileName(configPath)}. Defaulting to random.");
                 return PotatoConfig.Default();
             }
 
@@ -74,7 +65,7 @@ public static class PotatoConfigLoader
         catch (Exception ex)
         {
             RollingBoulderToPotatoMod.Logger.Warn(
-                $"Failed to read {ConfigFileName}: {ex.Message}. Defaulting to random.");
+                $"Failed to read {Path.GetFileName(configPath)}: {ex.Message}. Defaulting to random.");
             return PotatoConfig.Default();
         }
     }
