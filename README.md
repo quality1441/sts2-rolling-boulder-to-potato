@@ -78,6 +78,11 @@ Build artifacts (`.godot/`, `dist/`, etc.) are gitignored.
 - Inspired from chat interaction on [Frost Prime's STS2](https://www.youtube.com/watch?v=ffSVUOa5CIc) live stream.
 - **Tested with STS2 v0.103.3** (Early Access). New game patches may require a mod update.
 
+## Support
+
+- [Discord](https://qaulity.s.gy/github)
+- [Donate on Patreon](https://www.patreon.com/cw/Qaulity)
+
 ## Disclaimer
 
 *Slay the Spire 2* and related trademarks are property of Mega Crit Games. This project is a fan/community resource and is **not** affiliated with or endorsed by Mega Crit or Frost Prime. Use game assets and data in line with applicable terms and fair-use norms for your use case.

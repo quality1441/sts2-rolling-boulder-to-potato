@@ -74,6 +74,11 @@ Edit `potato.cfg` in the mod folder and restart the game:
 - Cosmetic only — does not affect gameplay or multiplayer compatibility checks
 - Modded and unmodded saves are separate
 
+## Support
+
+- [Discord](https://qaulity.s.gy/github)
+- [Donate on Patreon](https://www.patreon.com/cw/Qaulity)
+
 ## Disclaimer
 
 *Slay the Spire 2* and related trademarks are property of Mega Crit Games. This is a fan mod and is not affiliated with or endorsed by Mega Crit.
